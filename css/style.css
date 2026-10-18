@@ -87,10 +87,9 @@ nav a[aria-current="page"] {
 /* Grid keeps content in one column on narrow screens and adds columns
    when there is enough room. */
 main {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1rem;
+  display: block;
   width: 94%;
+  max-width: 76rem;
   margin: 1.5rem auto;
 }
 
@@ -100,11 +99,18 @@ main > aside {
   padding: 1rem;
   background-color: white;
   border: 1px solid #d5dce3;
+  margin-bottom: 1rem;
+}
+
+main img {
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
 
 main > section:first-child {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr));
   gap: 0.75rem;
   align-items: center;
   grid-column: 1 / -1;
@@ -119,6 +125,23 @@ main > section:first-child iframe {
   width: 100%;
   aspect-ratio: 16 / 9;
   border: 0;
+}
+
+.why-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 28rem), 1fr));
+  gap: 1rem;
+  align-items: center;
+}
+
+.home-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+  gap: 1rem;
+}
+
+.home-card-grid article {
+  margin: 0;
 }
 
 h2,
@@ -161,6 +184,39 @@ main > section:not(:first-child) article {
   background-color: #f7f9fb;
 }
 
+/* Phase 1 and Phase 3 use the same card layout. On small screens the
+   cards stack; when space allows, the task and resources sit side by side. */
+.phase-section {
+  grid-column: 1 / -1;
+}
+
+.phase-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap: 1rem;
+}
+
+.phase-section article {
+  min-width: 0;
+  margin: 0;
+}
+
+.phase-section article h3 {
+  margin-top: 0;
+}
+
+.resource-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  gap: 0.75rem;
+}
+
+.resource-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+  gap: 0 1rem;
+}
+
 li {
   margin-bottom: 0.5rem;
 }
@@ -168,6 +224,19 @@ li {
 table {
   width: 100%;
   border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.category-column {
+  width: 23%;
+}
+
+.resource-column {
+  width: 30%;
+}
+
+.purpose-column {
+  width: 47%;
 }
 
 caption {
@@ -183,6 +252,7 @@ td {
   border: 1px solid #b9c5d0;
   text-align: left;
   vertical-align: top;
+  overflow-wrap: anywhere;
 }
 
 th {
