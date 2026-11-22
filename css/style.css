@@ -212,9 +212,12 @@ main ol {
   text-decoration: none;
 }
 
-.featured-link a:hover {
-  background: #ffcb05;
-  color: #00274c;
+/* Non-color state cues with help from Claude (Anthropic) and OpenAI Codex. */
+.featured-link a:hover,
+.featured-link a:focus-visible {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.2em;
 }
 
 /* Design cleanup with help from Claude (Anthropic) and OpenAI Codex. */
@@ -489,9 +492,12 @@ address {
   cursor: pointer;
 }
 
-.faq-toggle-all:hover {
-  background: #ffcb05;
-  color: #00274c;
+/* Non-color state cues with help from Claude (Anthropic) and OpenAI Codex. */
+.faq-toggle-all:hover,
+.faq-toggle-all:focus-visible {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.2em;
 }
 
 .faq-question:focus-visible,
@@ -541,10 +547,17 @@ address {
   cursor: pointer;
 }
 
-.faq-question:hover,
+.faq-question:hover span:first-child,
+.faq-question:focus-visible span:first-child {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.2em;
+}
+
 .faq-question[aria-expanded="true"] {
   background: #ffcb05;
   color: #00274c;
+  font-weight: bold;
 }
 
 .faq-icon {
@@ -601,9 +614,12 @@ address {
   text-decoration: none;
 }
 
-.back-home-link:hover {
-  background: #ffcb05;
-  color: #00274c;
+/* Non-color state cues with help from Claude (Anthropic) and OpenAI Codex. */
+.back-home-link:hover,
+.back-home-link:focus-visible {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.2em;
 }
 
 .not-found-links h2 {
