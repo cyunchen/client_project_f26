@@ -1,4 +1,9 @@
 /* Basic page styles */
+/* Consistent corner radius — generated with help from Claude (Anthropic) and OpenAI Codex. */
+:root {
+  --radius: 0.375rem;
+}
+
 body {
   margin: 0;
   background-color: #f4f6f8;
@@ -299,5 +304,525 @@ address {
     scroll-behavior: auto !important;
     animation: none !important;
     transition: none !important;
+  }
+}
+
+/* Corner rounding and accents added to the existing styles. */
+.skip-link,
+nav a,
+.featured-link,
+.featured-link a,
+main > section,
+main > aside,
+.home-card-grid article,
+.phase-section article,
+.home-info-grid > section,
+.home-info-grid > aside,
+.faq-question,
+.stage-progress ol,
+.faq-item,
+.faq-toggle-all,
+.back-home-link,
+.not-found-hero .error-code {
+  border-radius: var(--radius);
+}
+
+nav a[aria-current="page"] {
+  box-shadow: inset 0 0 0 2px #00274c;
+}
+
+.featured-link {
+  border-left: 0;
+  box-shadow: inset 4px 0 0 #ffcb05;
+}
+
+.featured-link a {
+  text-decoration: none;
+}
+
+main > section:not(:first-child) article {
+  border-left: 0;
+  box-shadow: inset 4px 0 0 #ffcb05;
+}
+
+.home-card-grid {
+  grid-template-columns: 1fr;
+}
+
+.home-card-grid article {
+  margin: 0;
+}
+
+.home-info-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.home-info-grid > section,
+.home-info-grid > aside {
+  margin: 0;
+  padding: 1rem;
+  border: 1px solid #d5dce3;
+  background: #fff;
+}
+
+main > section:first-child {
+  grid-template-columns: 1fr;
+}
+
+.why-section {
+  grid-template-columns: 1fr;
+}
+
+.phase-cards,
+.resource-grid,
+.resource-list {
+  grid-template-columns: 1fr;
+}
+
+.phase-section article h3 {
+  margin-top: 0;
+}
+
+/* Simple cards for the task lists and resource links. */
+.action-cards,
+.checklist-cards,
+.resource-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+  margin: 0;
+}
+
+.action-cards li,
+.checklist-cards li,
+.resource-cards li {
+  margin: 0;
+  padding: 1rem;
+  border: 1px solid #d5dce3;
+  box-shadow: inset 0 3px 0 #ffcb05;
+  border-radius: var(--radius);
+  background: #fff;
+}
+
+.resource-cards {
+  padding: 0;
+  list-style: none;
+}
+
+.resource-cards li {
+  box-shadow: inset 0 3px 0 #00274c;
+}
+
+.resource-cards a {
+  font-weight: bold;
+}
+
+.resource-grid > section {
+  min-width: 0;
+  padding: 0.85rem;
+  overflow-wrap: anywhere;
+  border: 1px solid #d5dce3;
+  border-radius: var(--radius);
+  background: #f7f9fb;
+}
+
+.resource-grid > section h4 {
+  margin: 0 0 0.6rem;
+  padding-bottom: 0.45rem;
+  border-bottom: 2px solid #ffcb05;
+}
+
+.resource-grid > section ul {
+  margin-bottom: 0;
+}
+
+/* Stage progress card strip — generated with help from Claude (Anthropic) and OpenAI Codex. */
+.stage-progress {
+  width: 94%;
+  max-width: 76rem;
+  margin: 1rem auto 0;
+}
+
+.stage-progress ol {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid #d5dce3;
+  background: #fff;
+  list-style: none;
+}
+
+.stage-progress li {
+  margin: 0;
+}
+
+.stage-progress li + li {
+  border-top: 1px solid #d5dce3;
+}
+
+.stage-progress a {
+  display: block;
+  padding: 0.6rem 1rem;
+  box-shadow: inset 5px 0 0 #d5dce3;
+  color: #00274c;
+  text-decoration: none;
+}
+
+.stage-progress .stage-label,
+.stage-progress .stage-name {
+  display: block;
+}
+
+.stage-progress .stage-label {
+  color: #4a5a6a;
+  font-size: 0.8rem;
+}
+
+.stage-progress .stage-name {
+  font-size: 1.05rem;
+}
+
+.stage-progress a[aria-current="step"] {
+  box-shadow: inset 5px 0 0 #ffcb05;
+}
+
+.stage-progress a[aria-current="step"] .stage-name {
+  font-weight: bold;
+}
+
+.stage-progress a:hover .stage-name {
+  text-decoration: underline;
+}
+
+.stage-progress a:focus-visible {
+  outline: 3px solid #00274c;
+  outline-offset: -3px;
+}
+
+/* FAQ accordion */
+/* Generated with help from OpenAI Codex. Reference pattern: W3C ARIA Authoring Practices Guide, Accordion Pattern. */
+.faq-section {
+  width: 100%;
+  max-width: 58rem;
+  margin: 0 auto 1rem;
+  padding: 1rem;
+  border: 1px solid #d5dce3;
+  background: #fff;
+}
+
+main > section.faq-section:first-child {
+  display: block;
+}
+
+.faq-heading-row {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.25rem;
+  margin-bottom: 1rem;
+}
+
+.faq-intro h2 {
+  margin-bottom: 0.4rem;
+}
+
+.faq-intro p {
+  max-width: 55ch;
+  margin-bottom: 0;
+}
+
+.faq-controls {
+  display: flex;
+  margin-top: 0.5rem;
+}
+
+.faq-toggle-all {
+  min-height: 2.75rem;
+  padding: 0.55rem 0.9rem;
+  border: 2px solid #00274c;
+  background: #00274c;
+  color: #fff;
+  font: inherit;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.faq-toggle-all:hover {
+  background: #ffcb05;
+  color: #00274c;
+}
+
+.faq-question:focus-visible,
+.faq-toggle-all:focus-visible {
+  outline: 3px solid #00274c;
+  outline-offset: 3px;
+}
+
+.faq-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.65rem;
+  width: 100%;
+  max-width: 50rem;
+  margin: 0 auto;
+}
+
+.faq-item {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 1px solid #b9c5d0;
+  background: #fff;
+}
+
+.faq-item h3 {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.faq-question {
+  display: flex;
+  width: 100%;
+  min-height: 3.5rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.85rem 1rem;
+  border: 0;
+  background: #f7f9fb;
+  color: #00274c;
+  font: inherit;
+  font-weight: bold;
+  text-align: left;
+  cursor: pointer;
+}
+
+.faq-question:hover,
+.faq-question[aria-expanded="true"] {
+  background: #ffcb05;
+  color: #00274c;
+}
+
+.faq-icon {
+  display: grid;
+  width: 1.6rem;
+  height: 1.6rem;
+  flex-shrink: 0;
+  place-items: center;
+  border: 2px solid currentColor;
+  border-radius: 50%;
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.faq-answer {
+  padding: 0.9rem 1rem;
+  border-top: 1px solid #d5dce3;
+}
+
+.faq-answer p:last-child {
+  margin-bottom: 0;
+}
+
+/* 404 page. */
+main > section.not-found-hero:first-child {
+  display: block;
+  text-align: center;
+}
+
+.not-found-hero h2 {
+  font-size: 2rem;
+}
+
+.not-found-hero .error-code {
+  display: inline-block;
+  margin-bottom: 0.75rem;
+  padding: 0.25rem 0.7rem;
+  background: #ffcb05;
+  color: #00274c;
+  font-weight: bold;
+}
+
+.back-home-link {
+  display: inline-block;
+  min-height: 3rem;
+  margin-top: 0.25rem;
+  padding: 0.75rem 1.25rem;
+  border: 2px solid #00274c;
+  background: #00274c;
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.back-home-link:hover {
+  background: #ffcb05;
+  color: #00274c;
+}
+
+.not-found-links h2 {
+  margin-bottom: 1rem;
+}
+
+.not-found-contact {
+  text-align: center;
+}
+
+/* Tablet/desktop layout generated with help from OpenAI Codex. */
+@media (min-width: 48rem) {
+  header {
+    grid-template-columns: 5rem 1fr;
+    grid-template-rows: auto auto;
+    align-items: center;
+  }
+
+  header img {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  header nav {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  header nav ul {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.1rem;
+  }
+
+  header nav a {
+    padding: 0.3rem 0.35rem;
+    font-size: 0.875rem;
+    white-space: nowrap;
+  }
+
+  header h1 {
+    grid-column: 1 / 3;
+    grid-row: 2;
+  }
+
+  .stage-progress ol {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .stage-progress li + li {
+    border-top: 0;
+    border-left: 1px solid #d5dce3;
+  }
+
+  .stage-progress a {
+    height: 100%;
+    padding: 0.75rem 1.25rem;
+    box-shadow: inset 0 5px 0 #d5dce3;
+  }
+
+  .stage-progress a[aria-current="step"] {
+    box-shadow: inset 0 5px 0 #ffcb05;
+  }
+
+  footer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  footer > p,
+  footer > address {
+    margin: 0;
+  }
+
+  footer > address {
+    text-align: center;
+  }
+
+  footer > p:last-child {
+    text-align: right;
+  }
+
+  .home-card-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  main > section:first-child {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  main > section.home-hero:first-child {
+    grid-template-columns: 2fr 1fr;
+  }
+
+  .why-section,
+  .home-info-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .prep-phase .phase-cards {
+    grid-template-columns: 2fr 1fr;
+    align-items: start;
+  }
+
+  .prep-phase .phase-resources {
+    position: sticky;
+    top: 1rem;
+  }
+
+  .start-phase .phase-cards {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+
+  .start-phase .resource-list,
+  .start-phase .resource-cards {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .during-phase .action-cards {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .during-phase th,
+  .during-phase td {
+    padding: 0.8rem;
+  }
+
+  .during-phase tbody tr:nth-child(even) {
+    background: #f4f6f8;
+  }
+
+  .during-phase thead th {
+    position: sticky;
+    top: 0;
+  }
+
+  .faq-section {
+    padding: 1.5rem;
+  }
+
+  .faq-heading-row {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+  }
+
+  .faq-controls {
+    margin-top: 0;
+  }
+
+  .faq-list {
+    gap: 0.75rem;
+  }
+
+  .faq-answer {
+    padding: 1rem 1.25rem;
   }
 }
