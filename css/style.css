@@ -90,18 +90,33 @@ header h1 {
   text-decoration: none;
 }
 
-.site-nav a:hover,
-.site-nav a[aria-current="page"] {
-  padding: 0.35rem 0.6rem;
-  background: #ffcb05;
-  color: #00274c;
+/* Current page is shown with THREE cues, not just color (instructor feedback):
+   1. a maize box, 2. a thick underline, 3. a small dot shape before the text.
+   Hover only adds an underline, so the maize box always means "current page".
+   Written with help from Claude (Anthropic). */
+.site-nav a:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.25em;
 }
 
 .site-nav a[aria-current="page"] {
-  font-weight: bold;
+  background: #ffcb05;
+  color: #00274c;
   text-decoration: underline;
   text-decoration-thickness: 3px;
   text-underline-offset: 0.25em;
+}
+
+.site-nav a[aria-current="page"]::before {
+  content: "";
+  display: inline-block;
+  width: 0.5rem;
+  height: 0.5rem;
+  margin-right: 0.4rem;
+  border-radius: 50%;
+  background: #00274c;
+  vertical-align: middle;
 }
 
 /* Keeps the page content centered and gives each section a clear panel. */
@@ -338,8 +353,21 @@ main ol {
   box-shadow: inset 5px 0 0 #ffcb05;
 }
 
+/* Current stage: maize bar + bold name + "You are here" text + dot shape,
+   so it does not depend on color alone. Written with help from Claude (Anthropic). */
 .stage-progress a[aria-current="step"] .stage-name {
   font-weight: bold;
+}
+
+.stage-progress a[aria-current="step"] .stage-name::before {
+  content: "";
+  display: inline-block;
+  width: 0.5rem;
+  height: 0.5rem;
+  margin-right: 0.4rem;
+  border-radius: 50%;
+  background: #00274c;
+  vertical-align: middle;
 }
 
 .stage-progress a:hover .stage-name {
@@ -619,10 +647,6 @@ address {
     white-space: nowrap;
   }
 
-  .site-nav a:hover,
-  .site-nav a[aria-current="page"] {
-    padding: 0.5rem 0.75rem;
-  }
 
   header h1 {
     grid-column: 1 / 3;
